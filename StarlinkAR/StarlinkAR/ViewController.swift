@@ -14,6 +14,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, CLLocationManagerDele
     var mapView: MKMapView!
     var currentSatelliteId: Int?
     let apiKey = "PSRHTV-2KC7KA-VVNLWM-5J5S"
+    var selectedSatTimer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, CLLocationManagerDele
     func setupArrow() {
         let arrow = SCNPyramid(width: 0.1, height: 0.2, length: 0.1)
         arrow.firstMaterial?.diffuse.contents = UIColor.orange
+        arrow.firstMaterial?.emission.contents = UIColor.orange
         arrowNode = SCNNode(geometry: arrow)
-        arrowNode.position = SCNVector3(0, 0, -0.5)
+        arrowNode.position = SCNVector3(0, 0.5, -1.0)
         sceneView.scene.rootNode.addChildNode(arrowNode)
     }
 
@@ -162,6 +164,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, CLLocationManagerDele
                                         userAnnotation.title = "You"
                                         self.mapView.addAnnotation(userAnnotation)
                                     }
+
+                                    if elevation > 80 {
+                                        self.arrowNode.geometry?.firstMaterial?.diffuse.contents = UIColor.green
+                                        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+                                    } else {
+                                        self.arrowNode.geometry?.firstMaterial?.diffuse.contents = UIColor.orange
+                                    }
                                 }
                             }
                         }
@@ -220,6 +229,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, CLLocationManagerDele
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
+        selectedSatTimer?.invalidate()
     }
 }
 
@@ -238,6 +248,10 @@ extension ViewController: MKMapViewDelegate {
 extension ViewController: SatelliteSelectionDelegate {
     func didSelectSatellite(id: Int, name: String) {
         self.currentSatelliteId = id
+        self.selectedSatTimer?.invalidate()
         self.fetchLiveSatellitePosition(satId: id, satName: name)
+        self.selectedSatTimer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { _ in
+            self.fetchLiveSatellitePosition(satId: id, satName: name)
+        }
     }
 }

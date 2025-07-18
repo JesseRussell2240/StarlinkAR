@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C179D9AD2E29F9960070A06B /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = C179D9AC2E29F9950070A06B /* appicon.png */; };
-		C179D9AE2E29F9960070A06B /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = C179D9AC2E29F9950070A06B /* appicon.png */; };
 		C179D9B22E29FE430070A06B /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C179D9B12E29FE430070A06B /* ARKit.framework */; };
 		C179D9B42E29FE520070A06B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C179D9B32E29FE520070A06B /* CoreLocation.framework */; };
 		C179D9B62E29FE5F0070A06B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C179D9B52E29FE5F0070A06B /* CoreMotion.framework */; };
@@ -16,6 +14,7 @@
 		C179D9B92E2A0F030070A06B /* SatelliteSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179D9B72E2A0F030070A06B /* SatelliteSelectionViewController.swift */; };
 		C179D9BB2E2A0F470070A06B /* PassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179D9BA2E2A0F470070A06B /* PassesViewController.swift */; };
 		C179D9BC2E2A0F470070A06B /* PassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C179D9BA2E2A0F470070A06B /* PassesViewController.swift */; };
+		C179D9BE2E2A2B240070A06B /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = C179D9BD2E2A2B240070A06B /* AppIcon.appiconset */; };
 		C19570B12E29A8A60030A600 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19570B02E29A8A60030A600 /* AppDelegate.swift */; };
 		C19570B32E29A8A60030A600 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19570B22E29A8A60030A600 /* SceneDelegate.swift */; };
 		C19570B52E29A8A60030A600 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19570B42E29A8A60030A600 /* ViewController.swift */; };
@@ -45,13 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C179D9AC2E29F9950070A06B /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
 		C179D9AF2E29FD620070A06B /* StarlinkAR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StarlinkAR.entitlements; sourceTree = "<group>"; };
 		C179D9B12E29FE430070A06B /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 		C179D9B32E29FE520070A06B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C179D9B52E29FE5F0070A06B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		C179D9B72E2A0F030070A06B /* SatelliteSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteSelectionViewController.swift; sourceTree = "<group>"; };
 		C179D9BA2E2A0F470070A06B /* PassesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassesViewController.swift; sourceTree = "<group>"; };
+		C179D9BD2E2A2B240070A06B /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		C19570AD2E29A8A60030A600 /* StarlinkAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarlinkAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19570B02E29A8A60030A600 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C19570B22E29A8A60030A600 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +136,7 @@
 				C19570B42E29A8A60030A600 /* ViewController.swift */,
 				C19570B62E29A8A60030A600 /* Main.storyboard */,
 				C19570B92E29A8AC0030A600 /* Assets.xcassets */,
+				C179D9BD2E2A2B240070A06B /* AppIcon.appiconset */,
 				C19570BB2E29A8AC0030A600 /* LaunchScreen.storyboard */,
 				C19570BE2E29A8AC0030A600 /* Info.plist */,
 			);
@@ -156,7 +156,6 @@
 			children = (
 				C19570D12E29A8AD0030A600 /* StarlinkARUITests.swift */,
 				C19570D32E29A8AD0030A600 /* StarlinkARUITestsLaunchTests.swift */,
-				C179D9AC2E29F9950070A06B /* appicon.png */,
 			);
 			path = StarlinkARUITests;
 			sourceTree = "<group>";
@@ -265,9 +264,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C179D9AD2E29F9960070A06B /* appicon.png in Resources */,
 				C19570BD2E29A8AC0030A600 /* LaunchScreen.storyboard in Resources */,
 				C19570BA2E29A8AC0030A600 /* Assets.xcassets in Resources */,
+				C179D9BE2E2A2B240070A06B /* AppIcon.appiconset in Resources */,
 				C19570B82E29A8A60030A600 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,7 +282,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C179D9AE2E29F9960070A06B /* appicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +479,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = StarlinkAR/StarlinkAR.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -514,7 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = StarlinkAR/StarlinkAR.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
