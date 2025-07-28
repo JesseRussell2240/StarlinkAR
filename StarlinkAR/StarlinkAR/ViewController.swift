@@ -189,13 +189,23 @@ class ViewController: UIViewController, ARSCNViewDelegate, CLLocationManagerDele
 
     func updateArrow(to satelliteCoord: CLLocationCoordinate2D) {
         guard let userLoc = userLocation else { return }
+     
         let userCoord = userLoc.coordinate
         let bearing = bearingBetween(start: userCoord, end: satelliteCoord)
-        let radians = Float(bearing * .pi / 180)
-
+        let radiansY = Float(bearing * .pi / 180)
+     
+        // Compute vertical tilt (pitch) based on elevation difference
+        let satLocation = CLLocation(latitude: satelliteCoord.latitude, longitude: satelliteCoord.longitude)
+        let distance = Float(userLoc.distance(from: satLocation))
+        let altDiff = Float(500_000) // Approx. satellite altitude in meters (or use live data)
+     
+        // Use atan2 for pitch angle (elevation)
+        let pitchRadians = atan2(altDiff, distance)
+     
         SCNTransaction.begin()
         SCNTransaction.animationDuration = 0.5
-        arrowNode.eulerAngles.y = -radians
+        arrowNode.eulerAngles.y = -radiansY     // Azimuth
+        arrowNode.eulerAngles.x = -pitchRadians // Elevation (tilt)
         SCNTransaction.commit()
     }
 
