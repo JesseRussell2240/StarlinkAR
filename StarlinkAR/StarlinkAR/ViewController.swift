@@ -34,11 +34,27 @@ class ViewController: UIViewController, ARSCNViewDelegate, CLLocationManagerDele
     }
 
     func setupArrow() {
-        let arrow = SCNPyramid(width: 0.1, height: 0.2, length: 0.1)
-        arrow.firstMaterial?.diffuse.contents = UIColor.orange
-        arrow.firstMaterial?.emission.contents = UIColor.orange
-        arrowNode = SCNNode(geometry: arrow)
+        // Create the shaft of the arrow (a thin cylinder)
+        let shaft = SCNCylinder(radius: 0.02, height: 0.3)
+        shaft.firstMaterial?.diffuse.contents = UIColor.orange
+        let shaftNode = SCNNode(geometry: shaft)
+        shaftNode.position = SCNVector3(0, 0.15, 0) // Centered vertically
+     
+        // Create the arrowhead (a cone)
+        let head = SCNCone(topRadius: 0, bottomRadius: 0.05, height: 0.1)
+        head.firstMaterial?.diffuse.contents = UIColor.orange
+        let headNode = SCNNode(geometry: head)
+        headNode.position = SCNVector3(0, 0.4, 0)
+     
+        // Combine shaft and head into a single arrow node
+        arrowNode = SCNNode()
+        arrowNode.addChildNode(shaftNode)
+        arrowNode.addChildNode(headNode)
+     
+        // Position the arrow 1 meter in front of the camera
         arrowNode.position = SCNVector3(0, 0.5, -1.0)
+     
+        // Add to AR scene
         sceneView.scene.rootNode.addChildNode(arrowNode)
     }
 
